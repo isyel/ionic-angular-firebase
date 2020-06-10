@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6" size-lg="7">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              Login
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="loginForm" autocomplete="off">
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.email}}
+              </div>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.password}}
+              </div>
+              <ion-row>
+                <ion-col>
+                  <ion-button class="ion-margin-top" [disabled]="loginForm.invalid || showloginSpinner" expand="block" (click)="loginWithEmailPassword()">
+                    Login<ion-spinner name="dots" *ngIf="showloginSpinner"></ion-spinner>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button class="ion-margin-top" color="danger" (click)="googleLoginWeb()" expand="block"
+                    [disabled]="showloginWithGoogleSpinner">
+                    Google<ion-icon name="logo-google"></ion-icon>
+                    <ion-spinner name="dots" *ngIf="showloginWithGoogleSpinner"></ion-spinner></ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-button class="ion-margin-top" fill="outline" (click)="goToSignup()" expand="block">Sign Up</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
