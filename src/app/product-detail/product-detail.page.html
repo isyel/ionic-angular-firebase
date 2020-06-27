@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center" *ngIf="productDetailAvailable">
+      <ion-col size="12" size-lg="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="cube" color="secondary"></ion-icon>
+              {{productDetail.name}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list *ngIf="!showEditProductForm">
+              <ion-item *ngFor="let detail of productDetailList">
+                <ion-label>
+                  {{detail.name}}
+                </ion-label>
+                {{detail.value}}
+              </ion-item>
+              <ion-row class="ion-margin-top">
+                <ion-col size="6">
+                  <ion-button color="light" expand="block" (click)="deleteProduct()">
+                    <ion-icon name="trash" color="danger"></ion-icon>
+                    Delete <ion-spinner name="dots" *ngIf="showDeleteProductSpinner" color="danger"></ion-spinner>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button color="primary" expand="block" (click)="openEditProductForm()">
+                    <ion-icon name="create"></ion-icon>
+                    Edit
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-list>
+            <form [formGroup]="editProductForm" autocomplete="off" *ngIf="showEditProductForm">
+              <ion-item>
+                <ion-label position="floating">Name</ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.name}}
+              </div>
+              <ion-item>
+                <ion-label position="floating">Price</ion-label>
+                <ion-input type="text" formControlName="price"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.price}}
+              </div>
+              <ion-item>
+                <ion-label position="floating">Brand</ion-label>
+                <ion-input type="text" formControlName="brand"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.brand}}
+              </div>
+              <ion-item>
+                <ion-label position="floating">Size</ion-label>
+                <ion-input type="text" formControlName="size"></ion-input>
+              </ion-item>
+              <div>
+                {{formError.size}}
+              </div>
+              
+              <ion-row class="ion-margin-top">
+                <ion-col size="6">
+                  <ion-button color="light" expand="block" (click)="cancelEdit()">
+                    <ion-icon name="close-circle"></ion-icon>
+                    Cancel
+                  </ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-button color="primary" expand="block" (click)="updateProduct()"
+                    [disabled]="editProductForm.invalid || showEditProductSpinner">
+                    <ion-icon name="bookmark"></ion-icon>
+                    Save <ion-spinner name="dots" *ngIf="showEditProductSpinner"></ion-spinner>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-spinner name="lines" color="secondary" class="page-loader" *ngIf="!productDetailAvailable"></ion-spinner>
+  </ion-grid>
+</ion-content>

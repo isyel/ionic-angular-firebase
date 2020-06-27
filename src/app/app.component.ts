@@ -45,6 +45,9 @@ export class AppComponent {
       }
       this.handleNavigation();
       this.widgetUtilService.dismissLoader();
+    }, error => {
+      this.widgetUtilService.presentToast(error.message);
+      this.widgetUtilService.dismissLoader();
     })
   }
 

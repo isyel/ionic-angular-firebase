@@ -24,3 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.page-loader {
+    top: 45%;
+    left: 45%;
+    position: fixed;
+}
