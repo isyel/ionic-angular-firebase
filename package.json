@@ -13,13 +13,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "~8.2.14",
-    "@angular/core": "~8.2.14",
+    "@angular/common": "~10.0.1",
+    "@angular/core": "~10.0.1",
     "@angular/fire": "^6.0.0",
-    "@angular/forms": "~8.2.14",
-    "@angular/platform-browser": "~8.2.14",
-    "@angular/platform-browser-dynamic": "~8.2.14",
-    "@angular/router": "~8.2.14",
+    "@angular/forms": "~10.0.1",
+    "@angular/platform-browser": "~10.0.1",
+    "@angular/platform-browser-dynamic": "~10.0.1",
+    "@angular/router": "~10.0.1",
     "@capacitor/android": "^2.0.2",
     "@capacitor/core": "2.0.2",
     "@ionic-native/core": "^5.0.7",
@@ -40,14 +40,14 @@
     "firebase": "^7.14.2",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1000.0",
-    "@angular/cli": "~8.3.23",
-    "@angular/compiler": "~8.2.14",
-    "@angular/compiler-cli": "~8.2.14",
-    "@angular/language-service": "~8.2.14",
+    "@angular/cli": "~10.0.0",
+    "@angular/compiler": "~10.0.1",
+    "@angular/compiler-cli": "~10.0.1",
+    "@angular/language-service": "~10.0.1",
     "@capacitor/cli": "2.0.2",
     "@ionic/angular-toolkit": "^2.1.1",
     "@types/jasmine": "~3.3.8",
@@ -64,7 +64,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.9.5"
   },
   "description": "An Ionic project",
   "cordova": {
